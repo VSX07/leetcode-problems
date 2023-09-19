@@ -1,0 +1,25 @@
+//https://leetcode.com/problems/number-of-students-unable-to-eat-lunch/
+class Solution {
+public:
+    int countStudents(vector<int>& students, vector<int>& sandwiches) {
+        int size = students.size();
+        
+        for (int i = 0; i < sandwiches.size(); i++) {
+            bool found = false;
+
+            for (int j = 0; j < students.size(); j++) {
+                if (sandwiches[i] == students[j]) {
+                    found = true;
+                    students.erase(students.begin() + j); 
+                    break; 
+                }
+            }
+            
+            if (!found) {
+                return students.size(); 
+            }
+        }
+        
+        return 0;
+    }
+};
