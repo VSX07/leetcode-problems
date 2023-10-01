@@ -1,0 +1,9 @@
+https://leetcode.com/problems/sqrtx/description/
+class Solution {
+public:
+    int mySqrt(int x) {
+        int b;
+        b=sqrt(x);
+        return b;
+    }
+};
