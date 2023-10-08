@@ -1,0 +1,17 @@
+https://leetcode.com/contest/weekly-contest-366/submissions/detail/1069764502/
+class Solution {
+public:
+    int differenceOfSums(int n, int m) {
+        int sum=0;
+        int add=0;
+     for(int i=1;i<=n;i++){
+        if(i%m==0){
+          sum=sum+i;
+        }
+         else{
+           add=add+i;
+         }
+     }  
+        return (add-sum);
+    }
+};
