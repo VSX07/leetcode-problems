@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int sumCounts(vector<int>& nums) {
+        int result = 0;
+    int n = nums.size();
+    for (int start = 0; start < n; start++) {
+      set<int> distinct;
+        for (int end = start; end < n; end++) {
+            distinct.insert(nums[end]);
+            result += distinct.size() * distinct.size();
+        }
+    }
+
+    return result;
+    }
+};
