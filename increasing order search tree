@@ -1,0 +1,45 @@
+//https://leetcode.com/problems/increasing-order-search-tree/
+class Solution {
+public:
+    TreeNode* increasingBST(TreeNode* root) {
+        if(root==NULL){
+            return NULL;
+        }
+        
+        vector<int>v2=vectorpush(root);
+        vector<int>v3=sorted(v2);
+        return incbst(v3);
+    }
+    vector<int>v;
+   vector<int> vectorpush(TreeNode*root){
+        if(root==NULL){
+            return vector<int>();
+        }
+        v.push_back(root->val);
+        vectorpush(root->left);
+        vectorpush(root->right);
+        return v;
+    }
+    vector<int> sorted(vector<int>v2){
+        int n=v2.size();
+        for(int i=0;i<n-1;i++){
+            for(int j=i+1;j<n;j++){
+                if(v2[i]>v2[j]){
+                    swap(v2[i],v2[j]);
+                }
+            }
+        }
+        return v2;
+    }
+    int k=0;
+    TreeNode* incbst(vector<int>v3){
+        
+        if(k==v3.size()){
+            return NULL;
+        }
+        TreeNode*nroot=new TreeNode(v3[k]);
+        k++;
+        nroot->right=incbst(v3);
+        return nroot; 
+    }
+};
