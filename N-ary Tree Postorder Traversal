@@ -1,0 +1,18 @@
+https://leetcode.com/problems/n-ary-tree-postorder-traversal/
+class Solution {
+public:
+    vector<int> postorder(Node* root) {
+        vector<int>ans;
+        if(root==NULL){
+            return ans;
+        }
+        func(root,ans);
+        return ans;
+    }
+    void func(Node*root,vector<int>&ans){
+        for(int i=0;i<root->children.size();i++){
+            func(root->children[i],ans);
+        }
+        ans.push_back(root->val);
+    }
+};
