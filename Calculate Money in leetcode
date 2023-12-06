@@ -1,0 +1,22 @@
+//https://leetcode.com/problems/calculate-money-in-leetcode-bank/?envType=daily-question&envId=2023-12-06
+class Solution {
+public:
+int totalMoney(int n) {
+int sum = 0;
+int count=0;
+int flag=1;
+int str=7;
+while (count!=n) {  
+    for(int i=flag;i<=str;i++){
+        if (count==n) { 
+            break; 
+        }
+        sum=sum+i;
+        count++;
+        }
+        flag++;
+        str++;
+        }
+        return sum;
+    }
+};
