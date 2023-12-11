@@ -1,0 +1,29 @@
+//https://leetcode.com/problems/element-appearing-more-than-25-in-sorted-array/
+class Solution {
+public:
+    int findSpecialInteger(vector<int>& arr) {
+        int flag=0;
+        int per=arr.size()/4;
+        int ans;
+        for(int i=0;i<=arr.size()-1;i++){
+            int count=1;
+            if(arr.size()==1){
+                return arr[0];
+            }
+            for(int j=i+1;j<arr.size();j++){
+                if(arr[i]==arr[j]){
+                    count++;
+                    if(count>per){
+                        ans=arr[i];
+                        flag=1;
+                        break;
+                    }
+                }
+            }
+            if(flag==1){
+                break;
+            }
+        }  
+        return ans;
+    }
+};
