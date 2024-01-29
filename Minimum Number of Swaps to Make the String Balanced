@@ -1,0 +1,18 @@
+//https://leetcode.com/problems/minimum-number-of-swaps-to-make-the-string-balanced/
+class Solution {
+public:
+    int minSwaps(string s) {
+        stack<char>st;
+      for(auto x:s){
+          if(x=='['){
+               st.push(x);
+          }
+          else if(!st.empty()){
+                st.pop();
+          }
+      }
+      int ans;
+      ans=(st.size()+1)/2;
+      return ans;
+    }
+};
