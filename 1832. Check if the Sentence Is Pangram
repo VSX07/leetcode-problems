@@ -1,0 +1,11 @@
+//https://leetcode.com/problems/check-if-the-sentence-is-pangram/
+class Solution {
+public:
+    bool checkIfPangram(string sentence) {
+     unordered_map<char,int>h;
+     for(auto x:sentence){
+        h[x]++;
+     }
+     return h.size()==26;
+    }
+};
