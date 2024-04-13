@@ -1,0 +1,19 @@
+//https://leetcode.com/problems/count-alternating-subarrays/
+class Solution {
+public:
+    long long countAlternatingSubarrays(vector<int>& nums) {
+        long long result=0;
+        int n=nums.size();
+        
+        for(int i=0;i<n;i++){
+           int j=i;
+            while(j+1<n and nums[j]!=nums[j+1]){
+                 j++;
+            }
+            int len=j-i+1;
+            result=result+(long long)len*(len+1)/2;
+            i=j;
+        }
+        return result;
+    }
+};
