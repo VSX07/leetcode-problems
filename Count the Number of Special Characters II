@@ -1,0 +1,23 @@
+//https://leetcode.com/problems/count-the-number-of-special-characters-ii/
+class Solution {
+public:
+    int numberOfSpecialChars(string word) {
+        vector<int>lc(26,-1),uc(26,-1);
+        for(int i=0;i<word.size();i++){
+            char ch=word[i];
+            if(islower(ch)){
+                lc[ch-'a']=i;
+            }
+           else {
+               uc[ch-'A']=i;
+           }
+        }
+        int ans=0;
+        for(int i=0;i<26;i++){
+            if(lc[i]!=-1 and uc[i]!=-1 and uc[i]>lc[i]){
+                ans++;
+            }
+        }
+        return ans;
+    }
+};
