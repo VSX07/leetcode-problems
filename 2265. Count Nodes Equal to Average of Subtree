@@ -1,0 +1,36 @@
+class Solution {
+public:
+    int nodes1(TreeNode*t){
+        if(t==NULL){
+            return 0;
+        }
+        return nodes1(t->left)+nodes1(t->right)+1;
+    }
+    int summ(TreeNode*t){
+        if(t==NULL){
+            return 0;
+        }
+        return summ(t->left)+summ(t->right)+t->val;
+    }
+    int averageOfSubtree(TreeNode* root) {
+        queue<TreeNode*>q;
+        int count=0;
+        q.push(root);
+        while(!q.empty()){
+            TreeNode* t=q.front();
+            q.pop();
+            int sum=summ(t);
+            int no=nodes1(t);
+            if(t->val==(sum/no)){
+                count++;
+            }
+            if(t->left!=NULL){
+                q.push(t->left);
+            }
+            if(t->right!=NULL){
+                q.push(t->right);
+            }
+        }
+        return count;
+    }
+};
