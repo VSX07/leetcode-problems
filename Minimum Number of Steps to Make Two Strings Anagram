@@ -1,0 +1,20 @@
+//https://leetcode.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/
+class Solution {
+public:
+    int minSteps(string s, string t) {
+        uno   rdered_map<char,int>h;
+        for(auto x:s){
+            h[x]++;
+        }
+        for(auto y:t){
+            h[y]--;
+        }
+        int count=0;
+        for(auto i:h){
+            if(i.second>0){
+                count+=i.second;
+            }
+        }
+        return count;
+    }
+};
