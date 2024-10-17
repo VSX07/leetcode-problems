@@ -1,0 +1,27 @@
+//https://leetcode.com/problems/reverse-vowels-of-a-string/
+class Solution {
+public:
+    bool isVowel(char ch) {
+    std::set<char> vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
+    return vowels.find(ch) != vowels.end(); 
+}
+    string reverseVowels(string s) {
+        int n=s.size();
+        int l=0;
+        int r=n-1;
+        while(l<r){
+            if(isVowel(s[l])==true and isVowel(s[r])==true){
+            swap(s[l],s[r]);
+            l++;
+            r--;
+            }
+            else if(isVowel(s[l])==true and isVowel(s[r])==false){
+                r--;
+            }
+            else{
+                l++;
+            }
+        }
+        return s;
+    }
+};
